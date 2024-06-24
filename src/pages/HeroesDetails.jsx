@@ -17,20 +17,20 @@ function HeroesDetailsPage(){
       })
       .catch((err) => console.log(err));
   }
+
   useEffect(()=>{
-   
-  
+    getHeroesDetails();
   },[])
 
   useEffect(()=>{
     if(isTrain){
-
+        getHeroesDetails();  
     }
   },[isTrain])
 
   const startTrain=(id)=>{
     axios
-    .put("https://localhost:7000/HeroesDetails" ,{ id })
+    .put("https://localhost:7000/TrainHeroesDetails" ,{ item })
     .then((response)=>{
         setIsTrain(true)
     })
@@ -48,7 +48,7 @@ function HeroesDetailsPage(){
             <div>{item.startingPower}</div>
             <div>{item.currentPower}</div>
 
-            {item.guid==localStorage.userNneme&&item.onceNum<5&&<button onClick={startTrain(item.id)}>התחל אימון</button>}
+            {(item.guid==localStorage.userName&&item.onceNum<5)&&<button onClick={startTrain(item)}>התחל אימון</button>}
         </div>
 
          ))}
