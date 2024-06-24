@@ -5,6 +5,7 @@ import "./App.css";
 
 import HomePage from "./pages/Home.jsx";
 import LoginPage from "./pages/Login.jsx";
+import HeroesDetailsPage from "./pages/HeroesDetails.jsx";
 
 
 function App() {
